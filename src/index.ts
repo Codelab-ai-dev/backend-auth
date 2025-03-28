@@ -2,6 +2,7 @@ import 'dotenv/config';
 import express, { Express } from 'express';
 import { testConnection } from './config/database';
 import authRoutes from './routes/authRoutes';
+import userRoutes from './routes/userRoutes';
 
 const app: Express = express();
 const port = process.env.PORT || 3000;
@@ -16,6 +17,9 @@ app.get('/', (_req, res) => {
 
 // Rutas de autenticación
 app.use('/api/auth', authRoutes);
+
+// Rutas de usuarios (protegidas)
+app.use('/api/users', userRoutes);
 
 // Iniciar el servidor y probar la conexión a PostgreSQL
 async function startServer(): Promise<void> {

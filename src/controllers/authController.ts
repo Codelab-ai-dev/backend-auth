@@ -103,6 +103,7 @@ export const getProfile = async (req: Request, res: Response): Promise<void> => 
         id: true,
         email: true,
         username: true,
+        role: true,
         createdAt: true,
         updatedAt: true
       }
